@@ -1,0 +1,5 @@
+node_modules
+dist
+coverage
+.vscode
+src/components/Main/__snapshots__/test.tsx.snap

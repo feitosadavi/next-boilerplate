@@ -1,0 +1,14 @@
+{
+  "presets": [
+    "next/babel", // utiliza recursos novos do javascript no next e o babel irá transformar em es5
+    "@babel/preset-typescript"
+  ],
+  "plugins": [
+    [
+      "babel-plugin-styled-components",
+      {
+        "ssr": true
+      }
+    ]
+  ]
+}
