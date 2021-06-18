@@ -7,11 +7,18 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint src",
+    "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
+    "test:verbose": "jest --watch --passWithNoTests --runInBand",
+    "test:watch": "npm test -- --watch -c",
     "prepare": "husky install"
+  },
+  "husky": {
+    "pre-commit": "lint-staged"
   },
   "lint-staged": {
     "src/**/*": [
-      "npm run lint --fix"
+      "npm run lint --fix",
+      "npm run test"
     ]
   },
   "dependencies": {
@@ -20,17 +27,24 @@
     "react-dom": "17.0.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.5",
+    "@babel/preset-typescript": "^7.14.5",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
     "@types/node": "^15.12.2",
     "@types/react": "^17.0.11",
     "@typescript-eslint/eslint-plugin": "^4.27.0",
     "@typescript-eslint/parser": "^4.27.0",
+    "babel-jest": "^27.0.2",
     "eslint": "7.28.0",
     "eslint-config-next": "11.0.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "husky": "^6.0.0",
+    "jest": "^27.0.4",
+    "lint-staged": "^11.0.0",
     "prettier": "2.3.1",
     "typescript": "^4.3.4"
   }
