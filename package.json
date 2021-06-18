@@ -6,19 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint src",
+    "lint": "eslint src --max-warnings=0",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
     "test:verbose": "jest --watch --passWithNoTests --runInBand",
-    "test:watch": "npm test -- --watch -c",
-    "prepare": "husky install"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "src/**/*": ["npm run lint --fix", "npm run test"]
+    "test:watch": "npm test -- --watch -c"
   },
   "dependencies": {
     "next": "11.0.0",
@@ -42,10 +33,23 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^4.3.8",
     "jest": "^27.0.4",
     "lint-staged": "^11.0.0",
     "prettier": "2.3.1",
-    "typescript": "^4.3.4",
-    "husky": "^4.3.8"
+    "typescript": "^4.3.4"
+  },
+
+
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*": [
+      "npm run lint --fix",
+      "npm run test"
+    ]
   }
 }
