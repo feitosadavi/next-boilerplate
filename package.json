@@ -13,8 +13,10 @@
   },
   "dependencies": {
     "next": "11.0.0",
+    "next-pwa": "^5.2.21",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "styled-components": "^5.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
@@ -24,9 +26,11 @@
     "@testing-library/react": "^11.2.7",
     "@types/node": "^15.12.2",
     "@types/react": "^17.0.11",
+    "@types/styled-components": "^5.1.10",
     "@typescript-eslint/eslint-plugin": "^4.27.0",
     "@typescript-eslint/parser": "^4.27.0",
     "babel-jest": "^27.0.2",
+    "babel-plugin-styled-components": "^1.12.0",
     "eslint": "7.28.0",
     "eslint-config-next": "11.0.0",
     "eslint-config-prettier": "^8.3.0",
@@ -35,12 +39,11 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^4.3.8",
     "jest": "^27.0.4",
+    "jest-styled-components": "^7.0.4",
     "lint-staged": "^11.0.0",
     "prettier": "2.3.1",
     "typescript": "^4.3.4"
   },
-
-
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
@@ -49,7 +52,7 @@
   "lint-staged": {
     "src/**/*": [
       "npm run lint --fix",
-      "npm run test"
+      "npm run test --findRelatedTests --bail"
     ]
   }
 }
